@@ -28,8 +28,7 @@ setInterval(showSlok, 5000);
 
 //  the chapters
 async function fetchChapters() {
-    try
-    {
+    try {
         const res = await fetch('https://vedicscriptures.github.io/chapters');
         const data = await res.json();
 
@@ -38,7 +37,7 @@ async function fetchChapters() {
         data.forEach(ch => {
             chapter += `
             <div class="col-4 chapterCard">
-                <div class="card  h-100"             onclick="chapterNew(${ch. chapter_number})">
+                <div class="card  h-100"             onclick="chapterNew(${ch.chapter_number})">
                         <div class="card-body">
                             <h5 class="card-title text-bold  fs-6 mb-4">Chapter:${ch.chapter_number}</h5>
                             <h6 class="card-subtitle  mb-2 fs-4  text-bold">${ch.transliteration}</h6>
@@ -66,10 +65,9 @@ async function fetchChapters() {
 
         document.getElementById("chapters").innerHTML = chapter;
     }
-    catch(err)
-    {
+    catch (err) {
 
-        console.log("Error fetching chapters:",err);
+        console.log("Error fetching chapters:", err);
         document.getElementById("chapters").innerText += "Failed to load chapters.";
     }
 }
@@ -91,7 +89,7 @@ let form = document.getElementById("myform");
 
 form.addEventListener("submit", function (e) {
 
-    e.preventDefault(); 
+    e.preventDefault();
 
     let name = document.getElementById("name").value;
     let mail = document.getElementById("mail").value;
@@ -105,8 +103,8 @@ form.addEventListener("submit", function (e) {
 
     users.push(user);
 
-    localStorage.setItem("users", JSON.stringify(users));   
+    localStorage.setItem("users", JSON.stringify(users));
     alert("Subscribed Successfully!");
     form.reset();
-    
+
 });

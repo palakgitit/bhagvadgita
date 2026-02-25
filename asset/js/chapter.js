@@ -7,14 +7,14 @@ if (breadcrumb) {
     const chapterNO = params.get("number");
 
     // Add html from the JS.
-            breadcrumb.innerHTML = `
+    breadcrumb.innerHTML = `
                  <ol class="breadcrumb justify-content-center fs-5 ">
                         <li class="breadcrumb-item "><a href="./index.html" class="text-white">Home</a></li>
                         <li class="breadcrumb-item text-white active" aria-current="page">Chapter: ${chapterNO}</li>
                     </ol>
             `
-        
-}   
+
+}
 
 // Html id address store in js
 let container = document.getElementById("summary-detail");
@@ -28,7 +28,7 @@ if (container) {
     // Fetch chapter number from url, got the chapter number  
     fetch(`https://vedicscriptures.github.io/chapter/${chapterNO}`)
         .then(response => response.json())
-        .then(async  data => {
+        .then(async data => {
 
             // Display Title details [html from js to chapter.html]
             container.innerHTML = `
@@ -48,7 +48,7 @@ if (container) {
             `;
 
             // display Verses
-            verseBox.innerHTML = ""; 
+            verseBox.innerHTML = "";
 
             for (let i = 1; i <= data.verses_count; i++) {
                 // fetching the verses from the chapter
@@ -59,7 +59,7 @@ if (container) {
                 const verse = await response.json();
 
                 // Add html from js to Chapter.html
-                        verseBox.innerHTML += `
+                verseBox.innerHTML += `
 
                           <div class="d-flex verseContent gap-5 "  onclick="GetVerseNo(${verse.chapter},${verse.verse})">
                                 <div class="verseNo primary-text fs-5 ">
@@ -70,9 +70,10 @@ if (container) {
                                 </div>
                             </div>
                         `;
-                    };})
+            };
+        })
 
-        }
+}
 
 function GetVerseNo(ChapterNo, VerseNo) {
     window.location.href = `verse.html?chapter=${ChapterNo}&verse=${VerseNo}`;

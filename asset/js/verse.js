@@ -7,7 +7,7 @@ if (versebread) {
     const VerseNo = params.get("verse");
 
     console.log(VerseNo);
-    
+
     versebread.innerHTML = `
                  <ol class="breadcrumb justify-content-center fs-5 ">
                         <li class="breadcrumb-item "><a href="./index.html" class="text-white">Home</a></li>
@@ -16,7 +16,7 @@ if (versebread) {
                     </ol>
             `
 
-}   
+}
 
 const verseContentBox = document.getElementById("verseSlok");
 
@@ -27,7 +27,7 @@ if (verseContentBox) {
 
     fetch(`https://vedicscriptures.github.io/slok/${chapterNO}/${verseNum}/`)
         .then(response => response.json())
-        .then( slok => {
+        .then(slok => {
 
 
             verseContentBox.innerHTML = `

@@ -476,6 +476,13 @@
         display: flex !important;
         flex-wrap: wrap !important;
         gap: 10px;
+
+    }
+
+    #chapters {
+
+        justify-content: space-around;
+
     }
 
     .shlokbox {
